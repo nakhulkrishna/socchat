@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "111720929749",
+    "project_id": "socchat-d20de",
+    "storage_bucket": "socchat-d20de.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111720929749:android:7a2480d183ac28c45e055c",
+        "android_client_info": {
+          "package_name": "com.example.socchat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZhg8mb0BYGs3qM4cuqGZOybkhiz5qnJE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
