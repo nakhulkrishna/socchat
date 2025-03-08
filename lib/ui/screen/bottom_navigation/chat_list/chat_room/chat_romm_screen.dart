@@ -56,15 +56,13 @@ class ChatRommScreen extends StatelessWidget {
               BottomFiled(
                 controller: model.controller,
                 onChanged: (p0) {},
-                onTap: model.controller.text.isEmpty
-                    ? null
-                    : () async {
-                        try {
-                          await model.saveMessage();
-                        } catch (e) {
-                          context.showSnackBar(e.toString());
-                        }
-                      },
+                onTap: () async {
+                  try {
+                    await model.saveMessage();
+                  } catch (e) {
+                    context.showSnackBar(e.toString());
+                  }
+                },
               )
             ],
           ),

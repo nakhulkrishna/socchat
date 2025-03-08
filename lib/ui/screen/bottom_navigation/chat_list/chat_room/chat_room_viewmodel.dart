@@ -51,6 +51,12 @@ class ChatRoomViewmodel extends BaseViewModel {
           senderId: _currentUser.uid,
           receiverId: _receiver.uid);
       await _chatServices.saveMessage(message.toMap(), chatRoomId);
+      _chatServices.updateLastMessage(
+        _currentUser.uid!,
+        _receiver.uid!,
+        now.microsecondsSinceEpoch,
+        message.content!,
+      );
       _messageController.clear();
     } catch (e) {}
   }

@@ -1,26 +1,34 @@
 import 'dart:developer';
 import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:socchat/core/enums/enums.dart';
 import 'package:socchat/core/models/user_model.dart';
 import 'package:socchat/core/other/base_view_model.dart';
 import 'package:socchat/core/services/auth_service.dart';
 import 'package:socchat/core/services/database_service.dart';
+import 'package:socchat/core/services/storage_service.dart';
 
 class SignupViewmodel extends BaseViewModel {
   final AuthService _authService;
   final DatabaseService _db;
-  SignupViewmodel(this._authService, this._db);
+  final StorageService _storageService;
+  SignupViewmodel(this._authService, this._db, this._storageService);
   String name = "";
   String password = "";
   String email = "";
   String confirmpassword = "";
   File? _image;
+  final _picker = ImagePicker();
 
   File? get image => _image;
 
-  pickimage() {
-    ImagePick
+  pickimage() async {
+    final pic = await _picker.pickImage(source: ImageSource.gallery);
+    if (pic != null) {
+      _image = File(pic.path);
+      notifyListeners();
+    }
   }
 
   void setEmail(String value) {
